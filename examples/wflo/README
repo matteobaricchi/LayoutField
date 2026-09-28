@@ -1,0 +1,9 @@
+This folder contains data and scripts related to the manuscript entitled: "What matters for wind farm layout optimization? An assessment based on the effective layout" distance by Baricchio et al.
+
+data: contains all the results obtained in the study, i.e. the layouts obtained for the different implementation choices and their corresponding performance metrics, stored as csv files.
+
+example_run: contains an example python script to run an optimization case, and all input data and objective functions used in the study.
+
+generate_figures: contains the script used to generate the figures of the results shown in the manuscript, obtained by loading the corresponding pickle files included in the folder.
+
+python_env.yaml: describe the python packages and their versions used for this study.
