@@ -11,6 +11,8 @@ from numpy import newaxis as na
 import matplotlib.pyplot as plt
 import matplotlib.colors as colors
 
+from scipy.special import erfinv
+
 
 class LayoutProbabilityGrid():
     
@@ -150,4 +152,10 @@ class LayoutProbabilityGrid():
     def calculate_integrated_diff(self,x_list_1,y_list_1,x_list_2,y_list_2,sigma_D):
         f_diff = self.calculate_diff_grid(x_list_1,y_list_1,x_list_2,y_list_2,sigma_D)
         return np.sum(np.abs(f_diff))*(self.res_D*self.diameter)**2
+
+    def calculate_d_eff(self,x_list_1,y_list_1,x_list_2,y_list_2,sigma_D,n_wt):
+        f_diff = self.calculate_diff_grid(x_list_1,y_list_1,x_list_2,y_list_2,sigma_D)
+        lfie = np.sum(np.abs(f_diff))*(self.res_D*self.diameter)**2
+        d_eff = 2*np.sqrt(2)*sigma_D*erfinv(lfie/(2*n_wt))
+        return d_eff
 
